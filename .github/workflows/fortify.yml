@@ -8,9 +8,9 @@ jobs:
    fortify-scan:
         name: Run Fortify scan
         runs-on: ubuntu-latest
-        steps:    
+        steps:
           - name: Check out source code
-            uses: actions/checkout@v4  
+            uses: actions/checkout@v4
           - name: Run Fortify on Demand SAST & SCA Scan
             uses: fortify/github-action@v2
             with:
