@@ -3,7 +3,7 @@ on:
     workflow_dispatch:
     push:
         branches:
-            - main
+            - feat/add-fortify-gh-action
 jobs:
    fortify-scan:
         name: Run Fortify scan
@@ -19,30 +19,30 @@ jobs:
             env:
               FOD_URL: https://emea.fortify.com
               FOD_TENANT: ${{secrets.FOD_TENANT}}
-              FOD_USER: ${{secrets.FOD_USER}}
-              FOD_PASSWORD: ${{secrets.FOD_PAT}}
-              # FOD_CLIENT_ID: ${{secrets.FOD_CLIENT_ID}}
-              # FOD_CLIENT_SECRET: ${{secrets.FOD_CLIENT_SECRET}}
+              # FOD_USER: ${{secrets.FOD_USER}}
+              # FOD_PASSWORD: ${{secrets.FOD_PAT}}
+              FOD_CLIENT_ID: ${{secrets.FOD_CLIENT_ID}}
+              FOD_CLIENT_SECRET: ${{secrets.FOD_CLIENT_SECRET}}
               # FOD_LOGIN_EXTRA_OPTS: --socket-timeout=60s
-              # FOD_RELEASE: MyApp:MyRelease
-              # DO_SETUP: true
+              FOD_RELEASE: WebGoat:github-action
+              DO_SETUP: true
               # SETUP_ACTION: https://scm.my.org/shared-repos/fcli-actions/setup.yaml
               # SETUP_EXTRA_OPTS: --copy-from "${{ github.repository }}:${{ github.event.repository.default_branch }}"
               # SC_CLIENT_VERSION: 24.4.1
-              # DO_PACKAGE_DEBUG: true
-              # PACKAGE_EXTRA_OPTS: -oss -bt mvn
+              DO_PACKAGE_DEBUG: true
+              PACKAGE_EXTRA_OPTS: -oss -bt mvn
               # FOD_SAST_SCAN_EXTRA_OPTS:
-              # DO_WAIT: true
-              # DO_POLICY_CHECK: true
+              DO_WAIT: true
+              DO_POLICY_CHECK: true
               # POLICY_CHECK_ACTION: https://scm.my.org/shared-repos/fcli-actions/check-policy.yaml
               # POLICY_CHECK_EXTRA_OPTS: --on-unsigned=ignore
-              # DO_JOB_SUMMARY: true
+              DO_JOB_SUMMARY: true
               # JOB_SUMMARY_ACTION: https://scm.my.org/shared-repos/fcli-actions/job-summary.yaml
               # JOB_SUMMARY_EXTRA_OPTS: --on-unsigned=ignore
-              # DO_PR_COMMENT: true
+              DO_PR_COMMENT: true
               # PR_COMMENT_ACTION: https://scm.my.org/shared-repos/fcli-actions/github-pr-comment.yaml
               # PR_COMMENT_EXTRA_OPTS: --on-unsigned=ignore
-              # DO_EXPORT: true
+              DO_EXPORT: true
               # EXPORT_ACTION: https://scm.my.org/shared-repos/fcli-actions/github-sast-report.yaml
               # EXPORT_EXTRA_OPTS: --on-unsigned=ignore
               # TOOL_DEFINITIONS: https://ftfy.mycompany.com/tool-definitions/v1/tool-definitions.yaml.zip
