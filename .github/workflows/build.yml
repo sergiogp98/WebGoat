@@ -1,6 +1,5 @@
 name: "Main build"
 on:
-    workflow_dispatch:
     push:
         branches:
             - main
